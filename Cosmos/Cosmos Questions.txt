@@ -1,0 +1,31 @@
+Q1. What is Zenith ?
+A1. Zenith is the imaginary point that is directly above a particular location on the celestial sphere
+
+Q2. Describe Focal length in terms of a telescope 
+A2. The focal length is essentially the distance (in millimetres) that light travels inside the telescope from its entry point (the aperture) to the exit point (the focuser where you place your eyepiece or your DSLR camera, also called prime focus imaging)
+
+Q3. What are the key differences between Ra/Dec and Alt/Az
+A4. One system (Alt-Az) measures from where you are, relating the directions to North, South, East, West, and altitude above the horizon. 
+The other has nothing to do with that. It (RA/DEC) measures positions from a fixed point in the sky. It does this by using a map of the sky with fixed coordinates
+When you are tracking, you are pointing to a target in space that is keeping the same relative coordinate on that map. The RA and DEC do not change
+
+Q4. An object is placed at a distance 2 f from the pole of a convex mirror of focal length f . The linear magnification is
+A4. 1/3
+
+Q5. Explain FOV
+A5. In astronomy, the field of view is the amount of sky you can see, whether with your unaided vision, binoculars, or a telescope. Field of view is measured as an angle, in degrees (◦), minutes ( ), and seconds ( ) of arc (1◦ = 60 = 3600 ). If you had eyes on all sides of your head, you would have a 360◦ field of view
+
+Q6. Why do astronomers used red light as a visual aid at night instead of white light?
+A6. A red torch enables you to check charts without ruining dark adapted vision
+
+Q7. What is the main difference between refracting and reflecting telescopes
+A7. The main difference between a refracting telescope and a reflecting telescope is how they magnify light from distant objects. A refracting telescope uses convex lenses to refract or bend light toward a focal point, while a reflecting telescope uses a concave mirror to redirect light toward a focal point
+
+Q8. What is the relation between focal length and magnification 
+A8. Magnifying power is inversely related to the focal length of a lens: the bigger the focal length, the lower the magnifying power
+
+Q9. Why are obsevatories located at such isolated locations?
+A9. The lack of environmental light in a less-inhabited area makes it possible to see vastly more heavenly objects in the night skyThey can observe celestial radio waves directly
+
+Q10. F-ratio formula
+A10. Focal Length/Aperture 
