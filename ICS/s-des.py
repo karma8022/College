@@ -1,29 +1,32 @@
 import random 
 import binascii
 
-def keygen(x):
-    key=''
-    for i in range(x):
-        key += str(random.randint(0,1))
-    return key
+IP = [2,6,3,1,4,8,5,7]
+IP_inverse = [4,1,3,5,7,2,8,6]
+P10 = [2,4,1,6,3,9,0,8,7,5]
+P8 = [5,2,6,3,7,4,19,8]
+P4 = [1,3,2,0]
+E_P=[3,0,1,2,1,2,3,0]
+S0=[[1,0,3,2],
+    [3,2,1,0],
+    [0,2,1,3],
+    [3,1,3,2]]
+    
+S1=[[0,1,2,3],
+    [2,0,1,3],
+    [3,0,1,0],
+    [2,1,0,3]]
+
+def key_gen():
+    Key=[]
+    print("Enter key")
+    for i in range(10):
+        Key.append(int(input()))
+    for i in range(10):
+        Key[i]=Key[P10[i]]
+    l_split=(Key[:5])
+    r_split=(Key[5:])
+    
+key_gen()
 
 
-def exor(a,b,n):
-     
-    temp = ""
-     
-    for i in range(n):
-         
-        if (a[i] == b[i]):
-            temp += "0"
-             
-        else:
-            temp += "1"
-             
-    return temp
-
-def feistal(plaintext,key):
-    ptASCII=[ord(char) for char in plaintext]
-    ptBinary=[format(x,'8b') for x in ptASCII]
-    ptBinary=''.join(ptBinary)
-    print(ptBinary)
