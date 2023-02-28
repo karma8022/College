@@ -1,0 +1,59 @@
+Assignment 2 coms:
+
+CREATE DATABASE lab;
+SHOW DATABASES;
+CREATE TABLE lab_test (
+    first varchar(255),
+    second int
+);
+DESC lab_test;
+
+CREATE TABLE IF NOT EXISTS author
+   -> (aut_id varchar(8) NOT NULL,
+   -> aut_name varchar(50) NOT NULL,
+   -> country varchar(25) NOT NULL,
+   -> home_city varchar(25) NOT NULL);
+
+DESC author;
+
+DROP TABLE lab_test;
+
+ALTER TABLE author
+    -> ADD auth_no int UNIQUE;
+
+ALTER TABLE author
+    -> ADD PRIMARY KEY(aut_id);
+
+DESC author;
+
+ALTER TABLE author
+    -> ADD pub_city varchar(30) NOT NULL DEFAULT '';
+
+DESC author;
+
+ CREATE TABLE author_mast
+    -> (aut_id varchar(8) NOT NULL ,
+    -> book_id varchar(15) NOT NULL PRIMARY KEY,
+    -> FOREIGN KEY (aut_id) REFERENCES author(aut_id) );
+
+DESC author_mast;
+
+ALTER TABLE author
+    -> DROP COLUMN aut_name;
+
+DESC author;
+
+ALTER TABLE author
+    -> ADD COLUMN supplier varchar(25) NOT NULL;
+
+
+Assignment 3 coms:
+
+
+
+
+
+
+
+
+

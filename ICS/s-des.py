@@ -1,6 +1,8 @@
 import random 
 import binascii
 
+from macpath import join
+
 IP = [2,6,3,1,4,8,5,7]
 IP_inverse = [4,1,3,5,7,2,8,6]
 P10 = [2,4,1,6,3,9,0,8,7,5]
@@ -25,8 +27,10 @@ def key_gen():
     for i in range(10):
         Key[i]=Key[P10[i]]
     l_split=(Key[:5])
+    print(l_split)
     r_split=(Key[5:])
-    
+    l_split = join(l_split)
+    print(l_split)
 key_gen()
 
 
