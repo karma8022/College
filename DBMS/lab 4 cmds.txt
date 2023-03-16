@@ -1,0 +1,236 @@
+Enter password: **********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use lab;
+Database changed
+mysql> create table room();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> create table room(
+    -> roomno int,
+    -> hotelno int,
+    -> type varchar(50),
+    -> price int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc room
+    -> c
+    ->
+    -> ;
+Empty set (0.00 sec)
+
+mysql> desc room;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| roomno  | int         | YES  |     | NULL    |       |
+| hotelno | int         | YES  |     | NULL    |       |
+| type    | varchar(50) | YES  |     | NULL    |       |
+| price   | int         | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> create table booking(
+    -> hotelno int,
+    -> guestno int,
+    -> datefrom date,
+    -> dateto date,
+    -> roomno int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table guest(
+    -> guestno int,
+    -> guestname char,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> drop hotel;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hotel' at line 1
+mysql> use lab;
+Database changed
+mysql> drop hotel;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'hotel' at line 1
+mysql> drop table hotel;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> drop table guest;
+ERROR 1051 (42S02): Unknown table 'lab.guest'
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select * from lab;
+ERROR 1146 (42S02): Table 'lab.lab' doesn't exist
+mysql> desc lab;
+ERROR 1146 (42S02): Table 'lab.lab' doesn't exist
+mysql> show tables;
++---------------+
+| Tables_in_lab |
++---------------+
+| author        |
+| author_mast   |
+| booking       |
+| dept          |
+| emp           |
+| room          |
++---------------+
+6 rows in set (0.00 sec)
+
+mysql> create table hotel(
+    -> hotelno int,
+    -> hotelname char,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> create table hotel(
+    -> hotelno int primary key,
+    -> name char,
+    -> city char);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table guest(
+    -> guestno int primary key,
+    -> guestname char,
+    -> guestaddress char);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into hotel
+    -> values(1,a,pune);
+ERROR 1054 (42S22): Unknown column 'a' in 'field list'
+mysql> desc hotel;
++---------+---------+------+-----+---------+-------+
+| Field   | Type    | Null | Key | Default | Extra |
++---------+---------+------+-----+---------+-------+
+| hotelno | int     | NO   | PRI | NULL    |       |
+| name    | char(1) | YES  |     | NULL    |       |
+| city    | char(1) | YES  |     | NULL    |       |
++---------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into hotel
+    -> values(1,'a','pune');
+ERROR 1406 (22001): Data too long for column 'city' at row 1
+mysql> drop table hotel;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table hotel(
+    -> hotelno int primary key,
+    -> name varchar(50),
+    -> city varchar(50));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into hotel
+    -> values(1,'a','pune');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into hotel
+    -> values(2,'b','pune');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into hotel
+    -> values(3,'c','mumbai');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into hotel
+    -> values(4,'d','chennai');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select *
+    -> from hotel;
++---------+------+---------+
+| hotelno | name | city    |
++---------+------+---------+
+|       1 | a    | pune    |
+|       2 | b    | pune    |
+|       3 | c    | mumbai  |
+|       4 | d    | chennai |
++---------+------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select count(*)
+    -> from hotel;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> insert into room
+    -> values(1,1,'a',1000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into room
+    -> values(2,1,'b',2000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into room
+    -> values(1,2,'a',3000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into room
+    -> values(2,2,'b',4000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select price , type
+    -> from room;
++-------+------+
+| price | type |
++-------+------+
+|  1000 | a    |
+|  2000 | b    |
+|  3000 | a    |
+|  4000 | b    |
++-------+------+
+4 rows in set (0.00 sec)
+
+mysql> select count(*)
+    -> from room;
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> update room
+    -> set price = price + price*0.05;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select price , type
+    -> from room;
++-------+------+
+| price | type |
++-------+------+
+|  1050 | a    |
+|  2100 | b    |
+|  3150 | a    |
+|  4200 | b    |
++-------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from hotel;
++---------+------+---------+
+| hotelno | name | city    |
++---------+------+---------+
+|       1 | a    | pune    |
+|       2 | b    | pune    |
+|       3 | c    | mumbai  |
+|       4 | d    | chennai |
++---------+------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select avg(price)
+    -> from room;
++------------+
+| avg(price) |
++------------+
+|  2625.0000 |
++------------+
+1 row in set (0.00 sec)

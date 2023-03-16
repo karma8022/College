@@ -14,6 +14,16 @@ public:
     }
 };
 
+void takeInput(Node* &root){
+    int data;
+    cin >> data;
+
+    while(data != -1){
+        insertintobst(root,data);
+        cin >> data;
+    }
+}
+
 int main(){
 
     return 0;
