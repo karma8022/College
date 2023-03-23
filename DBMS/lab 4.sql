@@ -1,0 +1,6 @@
+-- use lab;
+-- create table hotel(
+-- hotelno int,
+-- name char,
+-- city varchar(50)
+-- );
