@@ -1,7 +1,7 @@
 import random 
 import binascii
 
-from macpath import join
+
 
 IP = [2,6,3,1,4,8,5,7]
 IP_inverse = [4,1,3,5,7,2,8,6]
