@@ -66,6 +66,31 @@ app.put("/books/:id",(req,res)=>{
 
 
 
+
+
 app.listen(8800,()=>{
     console.log("Connected to backend!")
 })
+
+app.post("/books",(req,res)=>{
+    const q ="INSERT INTO books (`id`, `title`,`desc`,`cover`,`price`) VALUES (?, ?, ?, ?, ?)"
+    const values = [
+      req.body.id,
+      req.body.title,
+      req.body.desc, 
+      req.body.cover,
+      req.body.price,
+    ];
+    db.query(`SELECT id FROM books WHERE id=${req.body.id}`, (error, result) => {
+      if (error) return res.json(error);
+      if (result.length > 0) {
+        return res.status(409).json({ message: 'ID already exists' });
+      } else {
+        db.query(q, values, (err, data) => {
+          if(err) return res.json(err);
+          return res.json("Book has been created successfully");
+        });
+      }
+    });
+  })
+  

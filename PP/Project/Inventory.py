@@ -41,12 +41,12 @@ print(list_names)
 conn.close()
 
 for i in list_names:
-    conn=sqlite3.connect(os.path.join('Project\databases',f"{i}.db"))
+    conn=sqlite3.connect(os.path.join('databases',f"{i}.db"))
     cursor=conn.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS equipment_issued(equipment_name)")
     conn.close()
 
-dir_path = r"Project\databases"
+dir_path = r"databases"
 res = []
 flag = 0
 
@@ -58,10 +58,11 @@ print(res)
 
 name_input = input("Enter your name:")
 name_input = name_input + ".db"
-file = "Project/databases/" + name_input 
+file = "databases/" + name_input 
 
 for files in res:
     if files == name_input:
+        print("File exists")
         flag = 1
         break
 
@@ -83,7 +84,7 @@ if flag == 1:
     root.title("SELECT THE ITEMS THAT YOU ARE ISSUING:")
     # Dropdown menu options
     options = [
-        "Camera: ZWO 1600 MM pro monochrom ",
+        "Camera: ZWO 1600 MM pro monochrome ",
         "SOLARIX Solar filter (Explore Scientific -USA) - For RC 10",
         "ASI462MC(Color)",
         "Eyepieces: 40 mm",

